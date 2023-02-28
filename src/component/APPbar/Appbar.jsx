@@ -1,32 +1,74 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import React from 'react';
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import ManageSearch from '@mui/icons-material/ManageSearch';
+import { NavbarIcons } from '../Data/Data';
+import { pink } from '@mui/material/colors';
 
-export default function ButtonAppBar() {
+const Appbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+    <AppBar position="static" sx={{ backgroundColor: 'white' }}>
+      <Toolbar p={5}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography
+            sx={{
+              fontFamily: 'Nunito',
+              fontSize: 25,
+              fontWeight: 'bold',
+              color: 'black',
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            React Context Practice
+            Dribble
           </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </Box>
+        <Stack direction="row" ml={3}>
+          {NavbarIcons.map((Nav) => {
+            return (
+              <Box key={Nav.id} display="flex">
+                <Button
+                  variant="text"
+                  size="small"
+                  sx={{ color: '#5C5C5C', fontWeight: 'bold' }}
+                >
+                  {Nav.text}
+                </Button>
+              </Box>
+            );
+          })}
+        </Stack>
+        <Box>
+          <Stack direction="row" spacing={1} ml={60}>
+            <Button>
+              <ManageSearch size={24} sx={{ color: '#5C5C5C' }} />
+            </Button>
+            <Button variant="text" size="small" sx={{ color: '#5C5C5C' }}>
+              Sign In
+            </Button>
+            <Button
+              variant="text"
+              size="small"
+              sx={{
+                color: 'white',
+                backgroundColor: pink[500],
+                '&.MuiButtonBase-root:hover': {
+                  bgcolor: pink[500],
+                },
+              }}
+            >
+              Sign Up
+            </Button>
+          </Stack>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
-}
+};
+
+export default Appbar;
