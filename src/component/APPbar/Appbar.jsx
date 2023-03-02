@@ -3,49 +3,74 @@ import {
   AppBar,
   Box,
   Button,
+  CssBaseline,
   IconButton,
   Stack,
   Toolbar,
   Typography,
+  styled,
 } from '@mui/material';
 import ManageSearch from '@mui/icons-material/ManageSearch';
 import YoutubeSearched from '@mui/icons-material/YoutubeSearchedFor';
 import { NavbarIcons } from '../Data/Data';
 import { pink } from '@mui/material/colors';
+import Mobile from '../../Mobile/Mobile';
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+}));
 
 const Appbar = () => {
   return (
     <AppBar sx={{ backgroundColor: 'white', maxWidth: '100%' }}>
-      <Toolbar>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography
+      <Toolbar
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Stack direction="row" spacing={3} alignItems="center">
+          <StyledBox
             sx={{
-              fontFamily: 'Nunito',
-              fontSize: 25,
-              fontWeight: 'bold',
-              color: 'black',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            Dribble
-          </Typography>
-        </Box>
-        <Stack direction="row" ml={3}>
-          {NavbarIcons.map((Nav) => {
-            return (
-              <Box key={Nav.id} display="flex">
-                <Button
-                  variant="text"
-                  size="small"
-                  sx={{ color: '#5C5C5C', fontWeight: 'bold' }}
-                >
-                  {Nav.text}
-                </Button>
-              </Box>
-            );
-          })}
+            <Typography
+              sx={{
+                fontFamily: 'Nunito',
+                fontSize: 25,
+                fontWeight: 'bold',
+                color: 'black',
+              }}
+            >
+              Dribble
+            </Typography>
+          </StyledBox>
+          <StyledBox>
+            <Stack direction="row">
+              {NavbarIcons.map((Nav) => {
+                return (
+                  <Box key={Nav.id} display="flex">
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{ color: '#5C5C5C', fontWeight: 'bold' }}
+                    >
+                      {Nav.text}
+                    </Button>
+                  </Box>
+                );
+              })}
+            </Stack>
+          </StyledBox>
         </Stack>
-        <Box>
-          <Stack direction="row" spacing={1} ml={60}>
+        <StyledBox>
+          <Stack direction="row" spacing={1}>
             <Button variant="text">
               <YoutubeSearched size={24} sx={{ color: '#5C5C5C' }} />
             </Button>
@@ -76,7 +101,8 @@ const Appbar = () => {
               <Typography sx={{ padding: 1 }}>Sign up</Typography>
             </Button>
           </Stack>
-        </Box>
+        </StyledBox>{' '}
+        <Mobile />
       </Toolbar>
     </AppBar>
   );
