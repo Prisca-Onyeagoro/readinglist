@@ -9,13 +9,14 @@ import {
   Typography,
 } from '@mui/material';
 import ManageSearch from '@mui/icons-material/ManageSearch';
+import YoutubeSearched from '@mui/icons-material/YoutubeSearchedFor';
 import { NavbarIcons } from '../Data/Data';
 import { pink } from '@mui/material/colors';
 
 const Appbar = () => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white' }}>
-      <Toolbar p={5}>
+    <AppBar sx={{ backgroundColor: 'white', maxWidth: '100%' }}>
+      <Toolbar>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography
             sx={{
@@ -45,24 +46,34 @@ const Appbar = () => {
         </Stack>
         <Box>
           <Stack direction="row" spacing={1} ml={60}>
-            <Button>
-              <ManageSearch size={24} sx={{ color: '#5C5C5C' }} />
+            <Button variant="text">
+              <YoutubeSearched size={24} sx={{ color: '#5C5C5C' }} />
             </Button>
             <Button variant="text" size="small" sx={{ color: '#5C5C5C' }}>
-              Sign In
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  textTransform: 'none',
+                }}
+              >
+                <Typography>Sign In</Typography>
+              </Box>
             </Button>
             <Button
               variant="text"
               size="small"
               sx={{
                 color: 'white',
+                borderRadius: 3,
                 backgroundColor: pink[500],
                 '&.MuiButtonBase-root:hover': {
                   bgcolor: pink[500],
                 },
+                textTransform: 'none',
               }}
             >
-              Sign Up
+              <Typography sx={{ padding: 1 }}>Sign up</Typography>
             </Button>
           </Stack>
         </Box>
