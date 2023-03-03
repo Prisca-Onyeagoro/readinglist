@@ -16,11 +16,7 @@ import { NavbarIcons } from '../Data/Data';
 import { pink } from '@mui/material/colors';
 import Mobile from '../../Mobile/Mobile';
 
-const StyledBox = styled(Box)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    display: 'none',
-  },
-}));
+const StyledBox = styled(Box)(({ theme }) => ({}));
 
 const Appbar = () => {
   return (
@@ -102,7 +98,6 @@ const Appbar = () => {
             </Button>
           </Stack>
         </StyledBox>{' '}
-        <Mobile />
       </Toolbar>
     </AppBar>
   );
