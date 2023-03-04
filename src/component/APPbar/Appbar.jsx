@@ -20,7 +20,10 @@ const StyledBox = styled(Box)(({ theme }) => ({}));
 
 const Appbar = () => {
   return (
-    <AppBar sx={{ backgroundColor: 'white', maxWidth: '100%' }}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: 'white', maxWidth: '100%' }}
+    >
       <Toolbar
         sx={{
           display: 'flex',

@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material';
 import AppBar from './component/APPbar/Appbar';
 import Mobile from './Mobile/Mobile';
+import Home from './component/Home/Home';
 const StyledBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     display: 'none',
@@ -14,12 +15,17 @@ const StyledBoxs = styled(Box)(({ theme }) => ({
 const App = () => {
   return (
     <>
-      <StyledBox>
-        <AppBar />
-      </StyledBox>
-      <StyledBoxs>
-        <Mobile />
-      </StyledBoxs>
+      <Box>
+        <Box>
+          <StyledBox>
+            <AppBar />
+          </StyledBox>
+          <StyledBoxs>
+            <Mobile />
+          </StyledBoxs>
+        </Box>
+        <Home />
+      </Box>
     </>
   );
 };

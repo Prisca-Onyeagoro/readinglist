@@ -10,6 +10,7 @@ import {
   Stack,
   SwipeableDrawer,
   Typography,
+  styled,
 } from '@mui/material';
 import React, { useState } from 'react';
 import MenuOpen from '@mui/icons-material/MenuOpen';
@@ -18,6 +19,14 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Drawer = () => {
   const [open, setOpen] = useState(false);
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    // textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
   return (
     <>
@@ -59,91 +68,136 @@ const Drawer = () => {
         </Box>
         <Stack spacing={2}>
           <Box>
-            <Accordion>
+            <Accordion elevation={0}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Accordion 1</Typography>
+                <Typography sx={{ color: '#978F8D', fontSize: 20 }}>
+                  Inspiration
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
+                <Stack
+                  direction="column"
+                  // divider={<Divider orientation="vertical" flexItem />}
+                  spacing={2}
+                >
+                  <Item elevation={0}>
+                    <Typography>Explore Work Design</Typography>
+                  </Item>
+                  <Item elevation={0}>New & Noteworthy</Item>
+                  <Item elevation={0}>Playoffs</Item>
+                  <Item elevation={0}>Blog</Item>
+                  <Item elevation={0}>Weekly Warmup</Item>
+                </Stack>
               </AccordionDetails>
             </Accordion>
           </Box>
           <Box>
-            <Accordion>
+            <Accordion elevation={0}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Accordion 1</Typography>
+                <Typography sx={{ color: '#978F8D', fontSize: 20 }}>
+                  Find Work
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
+                <Stack
+                  direction="column"
+                  // divider={<Divider orientation="vertical" flexItem />}
+                  spacing={2}
+                >
+                  <Item elevation={0}>
+                    <Typography>Explore Work Design</Typography>
+                  </Item>
+                  <Item elevation={0}>Job Board</Item>
+                  <Item elevation={0}>Freelance Projects</Item>
+                  <Item elevation={0}>Want Freelance Design Projects?</Item>
+                  <Item elevation={0}>Personalize Your Profile With Video</Item>
+                </Stack>
               </AccordionDetails>
             </Accordion>
           </Box>
           <Box>
-            <Accordion>
+            <Accordion elevation={0}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Accordion 1</Typography>
+                <Typography sx={{ color: '#978F8D', fontSize: 20 }}>
+                  Go Pro
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
+                <Stack
+                  direction="column"
+                  // divider={<Divider orientation="vertical" flexItem />}
+                  spacing={2}
+                >
+                  <Item elevation={0}>For Designers</Item>
+                  <Item elevation={0}>For Freelancers</Item>
+                  <Item elevation={0}>For Teams</Item>
+                </Stack>
               </AccordionDetails>
             </Accordion>
           </Box>
           <Box>
-            <Accordion>
+            <Accordion elevation={0}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Accordion 1</Typography>
+                <Typography sx={{ color: '#978F8D', fontSize: 20 }}>
+                  Learn Design
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
+                <Stack
+                  direction="column"
+                  // divider={<Divider orientation="vertical" flexItem />}
+                  spacing={2}
+                >
+                  <Item elevation={0}>Certified Product Design Course</Item>
+                  <Item elevation={0}>Introduction to UI Design </Item>
+                  <Item elevation={0}>Design System Course</Item>
+                  <Item elevation={0}>Design Career Prep Course</Item>
+                  <Item elevation={0}>
+                    Browse Our Collections And WorkShops
+                  </Item>
+                </Stack>
               </AccordionDetails>
             </Accordion>
           </Box>
           <Box>
-            <Accordion>
+            <Accordion elevation={0}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Accordion 1</Typography>
+                <Typography sx={{ color: '#978F8D', fontSize: 20 }}>
+                  Hire Designers
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                  <Stack
+                    direction="column"
+                    // divider={<Divider orientation="vertical" flexItem />}
+                    spacing={2}
+                  >
+                    <Item elevation={0}>About Dribble Hiring</Item>
+                    <Item elevation={0}>Designers Search</Item>
+                    <Item elevation={0}>List My Job Opening</Item>
+                    <Item elevation={0}>Post a Freelance Project</Item>
+                  </Stack>
                 </Typography>
               </AccordionDetails>
             </Accordion>
