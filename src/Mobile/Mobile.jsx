@@ -4,7 +4,7 @@ import Drawer from '../component/Drawer/Drawer';
 
 const Mobile = () => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white' }}>
+    <AppBar Position="sticky" sx={{ backgroundColor: 'white' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box>
           {' '}

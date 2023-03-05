@@ -14,16 +14,12 @@ import ManageSearch from '@mui/icons-material/ManageSearch';
 import YoutubeSearched from '@mui/icons-material/YoutubeSearchedFor';
 import { NavbarIcons } from '../Data/Data';
 import { pink } from '@mui/material/colors';
-import Mobile from '../../Mobile/Mobile';
 
 const StyledBox = styled(Box)(({ theme }) => ({}));
 
 const Appbar = () => {
   return (
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: 'white', maxWidth: '100%' }}
-    >
+    <AppBar Position="sticky" sx={{ backgroundColor: 'white' }}>
       <Toolbar
         sx={{
           display: 'flex',
