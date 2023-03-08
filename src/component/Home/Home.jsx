@@ -1,18 +1,34 @@
 import React from 'react';
-import { Box, Paper, Tab, Tabs, Typography, styled } from '@mui/material';
+import {
+  Box,
+  Paper,
+  Stack,
+  Tab,
+  Tabs,
+  Typography,
+  styled,
+} from '@mui/material';
 import pexels from './pexels.mp4';
 import { TabsIcons } from '../Data/Data';
 import Tabicon from '../Tabicons/Tabicon';
 
-const StyledBoxs = styled(Box)((theme) => {});
-
+const StyledBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    marginLeft: 0,
+  },
+}));
+const StyledBoxs = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.up('md')]: {
+    overflowX: 'hidden',
+  },
+}));
 const Home = () => {
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
-    <Box position="relative" class="video-background ">
+    <Box position="relative" class="video-background overFlow: 'hidden ">
       <video
         class="video"
         src={pexels}
@@ -24,14 +40,67 @@ const Home = () => {
           top: 0,
           left: 0,
           minWidth: '100%',
-          minHeight: '80vh',
+          minHeight: '90vh',
           maxHeight: '100vh',
           objectFit: 'cover',
         }}
       />
-      <Box>
+      <StyledBox
+        sx={{
+          position: 'absolute',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+          top: '20%',
+          // marginLeft: 5,
+        }}
+      >
         <Tabicon />
-      </Box>
+        <StyledBoxs
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 2,
+          }}
+        >
+          <Stack direction="column" spacing={3}>
+            <Box
+              display="flex"
+              justifyContent={'center'}
+              sx={{ padding: { sm: 17 } }}
+              flexWrap="wrap"
+            >
+              <Typography
+                variant="h3"
+                fontSize={40}
+                sx={{
+                  fontWeight: 'bold',
+                  color: 'white',
+                  // marginLeft: { xs: 5 },
+                }}
+              >
+                Explore the world's leading <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
+                portfolio's
+              </Typography>
+            </Box>
+            {/* 
+            <Box>
+              <Typography
+                variant="body1"
+                fontSize={20}
+                sx={{ fontWeight: 'bold', color: 'white' }}
+              >
+                Millions of designers and agencies around the world showcase
+                their portfolio work <br /> on Dribble - the home to the world's
+                best design and creative professionals
+              </Typography>
+            </Box> */}
+          </Stack>
+        </StyledBoxs>
+      </StyledBox>
     </Box>
   );
 };
