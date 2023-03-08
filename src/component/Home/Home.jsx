@@ -1,6 +1,9 @@
 import React from 'react';
 import {
   Box,
+  Button,
+  IconButton,
+  InputBase,
   Paper,
   Stack,
   Tab,
@@ -11,10 +14,36 @@ import {
 import pexels from './pexels.mp4';
 import { TabsIcons } from '../Data/Data';
 import Tabicon from '../Tabicons/Tabicon';
+import ManageSearch from '@mui/icons-material/ManageSearch';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     marginLeft: 0,
+  },
+}));
+
+const StyledBoxed = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'none',
+  },
+}));
+const StyledBoxeds = styled(Box)(({ theme }) => ({
+  // [theme.breakpoints.('lg')]: {
+  //   display: 'none',
+  // },
+}));
+const StyledButton = styled(Button)(({ theme }) => ({
+  border: '1px solid white',
+  color: 'white',
+  '&:hover': {
+    borderColor: 'white',
+    boxShadow: 'none',
+  },
+  [theme.breakpoints.down('sm')]: {
+    size: 'small',
   },
 }));
 const StyledBoxs = styled(Box)(({ theme }) => ({
@@ -29,22 +58,40 @@ const Home = () => {
   };
   return (
     <Box position="relative" class="video-background overFlow: 'hidden ">
-      <video
-        class="video"
-        src={pexels}
-        muted
-        loop
-        autoPlay
-        type="video/mp4"
-        style={{
-          top: 0,
-          left: 0,
-          minWidth: '100%',
-          minHeight: '90vh',
-          maxHeight: '100vh',
-          objectFit: 'cover',
-        }}
-      />
+      <StyledBoxed>
+        <video
+          class="video"
+          src={pexels}
+          muted
+          loop
+          autoPlay
+          type="video/mp4"
+          style={{
+            top: 0,
+            left: 0,
+            minWidth: '100%',
+            minHeight: '50vh',
+            objectFit: 'cover',
+          }}
+        />
+      </StyledBoxed>
+      <StyledBoxeds>
+        <video
+          class="video"
+          src={pexels}
+          muted
+          loop
+          autoPlay
+          type="video/mp4"
+          style={{
+            top: 0,
+            left: 0,
+            minWidth: '100%',
+            minHeight: '110vh',
+            objectFit: 'cover',
+          }}
+        />
+      </StyledBoxeds>
       <StyledBox
         sx={{
           position: 'absolute',
@@ -52,7 +99,7 @@ const Home = () => {
           justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center',
-          top: '20%',
+          top: { xs: '14%', sm: '20%', md: '20%', lg: '20%', xl: '20%' },
           // marginLeft: 5,
         }}
       >
@@ -62,16 +109,11 @@ const Home = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: 2,
+            marginTop: 4,
           }}
         >
-          <Stack direction="column" spacing={3}>
-            <Box
-              display="flex"
-              justifyContent={'center'}
-              sx={{ padding: { sm: 17 } }}
-              flexWrap="wrap"
-            >
+          <Stack direction="column" spacing={{ xs: 6, sm: 9, md: 10, lg: 10 }}>
+            <Box display="flex" justifyContent={'center'} flexWrap="wrap">
               <Typography
                 variant="h3"
                 fontSize={40}
@@ -81,13 +123,11 @@ const Home = () => {
                   // marginLeft: { xs: 5 },
                 }}
               >
-                Explore the world's leading <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design
-                portfolio's
+                Explore the world's leading design portfolio's
               </Typography>
             </Box>
-            {/* 
-            <Box>
+
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <Typography
                 variant="body1"
                 fontSize={20}
@@ -97,7 +137,81 @@ const Home = () => {
                 their portfolio work <br /> on Dribble - the home to the world's
                 best design and creative professionals
               </Typography>
-            </Box> */}
+            </Box>
+            <Box>
+              <Paper
+                component={'form'}
+                sx={{
+                  // p: '2px 4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: '100%',
+                  border: '1px solid #ddd',
+                  borderRadius: 20,
+                }}
+              >
+                <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Where to?" />
+                <IconButton type="submit" sx={{ p: '10px' }}>
+                  <ManageSearch />
+                </IconButton>
+              </Paper>
+            </Box>
+            <Box
+              display="flex"
+              flexDirection={'row'}
+              textAlign="baseline"
+              flexWrap={'wrap'}
+              gap={1}
+              overFlow="hidden"
+            >
+              <Button variant="text" sx={{ color: 'white' }}>
+                Trending Searches:
+              </Button>
+              <StyledButton
+                variant="outlined"
+                sx={{ borderRadius: 4 }}
+                size="small"
+              >
+                landing page
+              </StyledButton>
+              <StyledButton
+                variant="outlined"
+                sx={{ borderRadius: 4 }}
+                size="small"
+              >
+                ios
+              </StyledButton>
+              <StyledButton
+                variant="outlined"
+                sx={{
+                  borderRadius: 4,
+                  display: {
+                    xs: 'none',
+                    sm: 'flex',
+                    md: 'flex',
+                    lg: 'flex',
+                    xl: 'flex',
+                  },
+                }}
+                size="small"
+              >
+                food
+              </StyledButton>
+              <StyledButton
+                variant="outlined"
+                sx={{ borderRadius: 4 }}
+                size="small"
+              >
+                appdesign
+              </StyledButton>
+              <StyledButton
+                variant="outlined"
+                sx={{ borderRadius: 4 }}
+                size="small"
+              >
+                uxdesign
+              </StyledButton>
+            </Box>
           </Stack>
         </StyledBoxs>
       </StyledBox>

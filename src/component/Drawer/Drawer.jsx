@@ -57,9 +57,6 @@ const Drawer = () => {
               borderRadius: 20,
             }}
           >
-            <IconButton sx={{ p: '10px' }}>
-              <ManageSearch />
-            </IconButton>
             <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Where to?" />
             <IconButton type="submit" sx={{ p: '10px' }}>
               <ManageSearch />
