@@ -3,6 +3,8 @@ import AppBar from './component/APPbar/Appbar';
 import Mobile from './Mobile/Mobile';
 import Home from './component/Home/Home';
 import Hometag from './component/Hometag/Hometag';
+import Bottom from './component/BottomButton/Bottom';
+import Footer from './component/Footer/Footer';
 const StyledBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     display: 'none',
@@ -27,6 +29,8 @@ const App = () => {
         </Box>
         <Home />
         <Hometag />
+        <Bottom />
+        <Footer />
       </Box>
     </>
   );

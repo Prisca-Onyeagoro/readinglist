@@ -13,6 +13,7 @@ import {
 import Filter from '@mui/icons-material/FilterAltOutlined';
 import { pink } from '@mui/material/colors';
 import React from 'react';
+import ImageGrid from '../ImageGrid/ImageGrid';
 
 const Hometag = () => {
   const [age, setAge] = React.useState('');
@@ -84,6 +85,7 @@ const Hometag = () => {
             </Paper>
           </Box>
         </Box>
+        <ImageGrid />
       </Container>
     </>
   );
