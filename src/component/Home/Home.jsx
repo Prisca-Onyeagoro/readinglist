@@ -78,7 +78,7 @@ const Home = () => {
       <StyledBoxeds>
         <video
           class="video"
-          src={pexels}
+          src="https://player.vimeo.com/progressive_redirect/playback/792828811/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=221a6dd4babf593c86f70dfcaebc89ab67d303806d149fb70ef08f95c3672066"
           muted
           loop
           autoPlay
