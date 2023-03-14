@@ -1,9 +1,23 @@
 import { Box, Button, Paper, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-
+import { motion, AnimatePresence } from 'framer-motion';
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    backgroundColor: 'blue',
+    transition: {
+      repeatType: 'mirror',
+      repeat: Infinity,
+      duration: 0.7,
+    },
+  },
+};
 const Home = () => {
+  const [show, setShow] = useState(true);
+  setTimeout(() => {
+    setShow(false);
+  }, 4000);
   return (
     <>
       <Box
@@ -22,7 +36,7 @@ const Home = () => {
           {' '}
           <Typography
             variant="h4"
-            animate={{ fontSize: 50, color: 'red', x: 100, y: -100 }}
+            animate={{ fontSize: 50, fontWeight: 'bold', x: 100, y: -100 }}
             component={motion.div}
           >
             BURGER JOINTss
@@ -37,17 +51,22 @@ const Home = () => {
               display: 'flex',
               justifyContent: 'center',
             }}
+            component={motion.div}
+            variants={buttonVariants}
+            whileHover="hover"
           >
             <Button variant="text" component={Link} to="/base">
-              <Typography
-                component={motion.div}
-                whileHover={{ scale: 1.1, backgroundColor: 'blue' }}
-              >
-                Click
-              </Typography>
+              <Typography>Create A Bugger</Typography>
             </Button>
           </Paper>
         </Box>
+        <AnimatePresence>
+          {show && (
+            <Button variant="text" component={motion.div} exit={{ y: -1000 }}>
+              <Typography>Up I GO WHEEEEEEEEEEEEEE</Typography>
+            </Button>
+          )}
+        </AnimatePresence>
       </Box>
     </>
   );

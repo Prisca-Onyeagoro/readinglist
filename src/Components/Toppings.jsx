@@ -1,6 +1,21 @@
 import { Box, Button, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+const Variants = {
+  hidden: {
+    x: '-100vw',
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+    },
+    whileHover: {
+      scale: 1.2,
+    },
+  },
+};
 
 const Toppings = () => {
   const [value, setValue] = useState(false);
@@ -21,10 +36,10 @@ const Toppings = () => {
               variant="outlined"
               sx={{ color: 'black', borderRadius: 13 }}
               component={motion.div}
-              initial={{ x: '-100vw' }}
-              animate={{ x: 0 }}
-              transition={{ type: 'spring', stiffness: 120 }}
-              whileHover={{ scale: 1.1 }}
+              variants={Variants}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.3 }}
             >
               Next
             </Button>
