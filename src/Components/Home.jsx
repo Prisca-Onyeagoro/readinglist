@@ -1,7 +1,9 @@
 import { Box, Button, Paper, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import Modal from './Modal';
+import Loader from './Loader';
 const buttonVariants = {
   hover: {
     scale: 1.1,
@@ -13,13 +15,31 @@ const buttonVariants = {
     },
   },
 };
-const Home = () => {
+const Home = ({ ShowModal }) => {
   const [show, setShow] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      ShowModal(false);
+    }, 5000);
+  }, [ShowModal]);
   setTimeout(() => {
     setShow(false);
   }, 4000);
   return (
     <>
+      <Box>
+        <Box
+          sx={{
+            backgroundColor: 'black',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1,
+          }}
+        />
+      </Box>
+
       <Box
         sx={{
           display: 'flex',
@@ -60,6 +80,8 @@ const Home = () => {
             </Button>
           </Paper>
         </Box>
+        <Loader />
+
         <AnimatePresence>
           {show && (
             <Button variant="text" component={motion.div} exit={{ y: -1000 }}>

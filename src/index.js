@@ -5,11 +5,17 @@ import App from './App';
 import Base from './Components/Base';
 import Appbar from './Components/Appbar';
 import Toppings from './Components/Toppings';
+import { AnimatePresence } from 'framer-motion';
+import Modal from './Components/Modal';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: (
+      <>
+        <App />
+      </>
+    ),
   },
   {
     path: '/base',
