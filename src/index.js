@@ -2,11 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import App from './App';
-import Base from './Components/Base';
-import Appbar from './Components/Appbar';
-import Toppings from './Components/Toppings';
-import { AnimatePresence } from 'framer-motion';
-import Modal from './Components/Modal';
 
 const router = createBrowserRouter([
   {
@@ -14,17 +9,6 @@ const router = createBrowserRouter([
     element: (
       <>
         <App />
-      </>
-    ),
-  },
-  {
-    path: '/base',
-
-    element: (
-      <>
-        <Appbar />
-        <Base />
-        <Toppings />
       </>
     ),
   },

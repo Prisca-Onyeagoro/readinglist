@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import Appbar from './Components/Appbar';
-import Home from './Components/Home';
+import React from 'react';
 import { Box } from '@mui/material';
-import Modal from './Components/Modal';
+import Appbar from './Components/AppBar/Appbar';
 
 const App = () => {
-  const [modal, ShowModal] = useState(true);
   return (
     <>
-      <Appbar />
-      <Modal modal={modal} ShowModal={ShowModal} />
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Home ShowModal={ShowModal} />
+      <Box>
+        <Appbar />
       </Box>
     </>
   );
