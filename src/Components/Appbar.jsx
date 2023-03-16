@@ -26,7 +26,12 @@ const Appbar = () => {
   return (
     <AppBar position="sticky" sx={{ background: 'blue' }}>
       <Toolbar>
-        <Box>
+        <Box
+          component={motion.div}
+          drag
+          dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+          dragElastic={0.2}
+        >
           <motion.svg
             width="50px"
             height="50px"
