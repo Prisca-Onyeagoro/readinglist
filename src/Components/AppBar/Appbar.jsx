@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  IconButton,
   Tab,
   Tabs,
   Toolbar,
@@ -19,7 +20,10 @@ const Appbar = () => {
   };
   return (
     <>
-      <AppBar sx={{ backgroundColor: 'transparent' }}>
+      <AppBar
+        sx={{ backgroundColor: 'white', boxShadow: 'none' }}
+        position="sticky"
+      >
         <Container>
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Box>
@@ -29,12 +33,13 @@ const Appbar = () => {
                 FORMI
               </Typography>
             </Box>
-            <Box>
+
+            <Box sx={{ display: { sm: 'none', md: 'flex', xs: 'none' } }}>
               <Tabs
                 value={value}
                 onChange={handlechange}
                 scrollButtons={false}
-                TabIndicatorProps={{ style: { backgroundColor: brown[500] } }}
+                TabIndicatorProps={{ style: { backgroundColor: 'brown' } }}
               >
                 {Tabed.map((tab) => {
                   return (
@@ -53,16 +58,41 @@ const Appbar = () => {
                 })}
               </Tabs>
             </Box>
+            <Box sx={{ display: { sm: 'flex', md: 'none', xs: 'flex' } }}>
+              <Typography
+                sx={{ color: 'black', fontWeight: 'bold', fontSize: 24 }}
+              >
+                LOGO
+              </Typography>
+            </Box>
             <Box>
               <Button
                 variant="outlined"
                 sx={{
+                  display: { sm: 'none', md: 'flex', xs: 'none' },
+
                   color: 'black',
                   borderRadius: 9,
-                  borderColor: brown[500],
+                  borderColor: 'brown',
+                  '&:hover': {
+                    backgroundColor: 'brown',
+                    color: 'white',
+                    borderColor: 'brown',
+                  },
                 }}
               >
-                Contact us
+                <Typography
+                  sx={{
+                    fontSize: 15,
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {' '}
+                  Contact us
+                </Typography>
+              </Button>
+              <Button sx={{ display: { sm: 'flex', md: 'none', xs: 'flex' } }}>
+                <IconButton>Harm</IconButton>
               </Button>
             </Box>
           </Toolbar>
