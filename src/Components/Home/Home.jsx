@@ -10,6 +10,14 @@ import React from 'react';
 import Beauty from '../Media/Beauty.jpg';
 import { brown } from '@mui/material/colors';
 import MidSection from '../MidSection/MidSection';
+import { motion } from 'framer-motion';
+
+const image = {
+  visible: { opacity: 1, transition: { duration: 5, delay: 2 } },
+  hidden: {
+    opacity: 0,
+  },
+};
 
 const Home = () => {
   return (
@@ -70,6 +78,10 @@ const Home = () => {
               justifyContent: 'center',
               marginBottom: { xs: 10, sm: 10, md: 0 },
             }}
+            component={motion.div}
+            variants={image}
+            animate="visible"
+            initial="hidden"
           >
             <Box
               component="img"

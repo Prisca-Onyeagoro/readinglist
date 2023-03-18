@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
+import { motion, useScroll, useSpring, useAnimation } from 'framer-motion';
+import { useInView } from 'framer-motion';
+
+const box = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
 
 const MidSection = () => {
+  const control = useAnimation();
+
   return (
     <>
-      <Box marginTop={7}>
+      <Box marginTop={7} component={motion.div} variants={box}>
         <Container>
           <Stack direction="row" spacing={{ sm: 10, xs: 8, md: 30 }}>
             <Box sx={{ borderBottom: '5px solid brown' }}>
