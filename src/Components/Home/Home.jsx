@@ -88,6 +88,7 @@ const Home = () => {
               alt="beauty"
               src={Beauty}
               width={{ xs: '88%', sm: '88%', md: '98%' }}
+              display={{ xs: 'none', sm: 'flex', md: 'flex' }}
               borderTop="10px solid brown"
               borderBottom="8px solid brown"
               borderRight="8px solid brown"

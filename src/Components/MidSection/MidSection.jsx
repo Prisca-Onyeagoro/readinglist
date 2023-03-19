@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { motion, useScroll, useSpring, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
 
 const box = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, scale: 0 },
 };
 
 const MidSection = () => {
   const control = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
 
   return (
     <>
-      <Box marginTop={7} component={motion.div} variants={box}>
-        <Container>
+      <Box marginTop={7} component={motion.div} ref={ref}>
+        <Container
+          style={{
+            transform: inView ? 'none' : 'translateX(-200px)',
+            opacity: inView ? 1 : 0,
+            transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+          }}
+        >
           <Stack direction="row" spacing={{ sm: 10, xs: 8, md: 30 }}>
             <Box sx={{ borderBottom: '5px solid brown' }}>
               <Typography sx={{ fontWeight: 'bold', fontSize: 19 }}>
