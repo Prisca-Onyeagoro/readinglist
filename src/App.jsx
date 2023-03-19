@@ -1,16 +1,15 @@
 import React from 'react';
-import { Box } from '@mui/material';
 import Appbar from './Components/AppBar/Appbar';
-import Home from './Components/Home/Home';
-import GridSection from './Components/Grid-Section/GridSection';
+import Booklist from './Components/Home/Booklist/Booklist';
+import ThemeContextProvider from './Components/Context/ThemeContext';
 
 const App = () => {
   return (
     <>
-      <Appbar />
-      <Box>
-        <Home />
-      </Box>
+      <ThemeContextProvider>
+        <Appbar />
+        <Booklist />
+      </ThemeContextProvider>
     </>
   );
 };
