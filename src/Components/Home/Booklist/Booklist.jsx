@@ -1,16 +1,65 @@
 import { Component } from 'react';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Paper, Stack, Typography } from '@mui/material';
+import { Themecontext } from '../../Context/ThemeContext';
 
 class Booklist extends Component {
   render() {
     return (
-      <Box display="flex" justifyContent="center">
-        <Stack direction="column" spacing={3}>
-          <Typography>The way of kings</Typography>
-          <Typography>The name of the winds</Typography>
-          <Typography>The final empire</Typography>
-        </Stack>
-      </Box>
+      <Themecontext.Consumer>
+        {(context) => {
+          const { LightTheme, Light, Dark } = context;
+          const theme = LightTheme ? Light : Dark;
+
+          return (
+            <Box display="flex" justifyContent="center">
+              <Stack direction="column" spacing={3}>
+                <Paper
+                  sx={{
+                    width: 400,
+                    borderRadius: 5,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    backgroundColor: theme.ui,
+                  }}
+                >
+                  {' '}
+                  <Typography sx={{ color: theme.syntax }}>
+                    The way of kings
+                  </Typography>
+                </Paper>
+                <Paper
+                  sx={{
+                    width: 400,
+                    borderRadius: 5,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    backgroundColor: theme.ui,
+                  }}
+                >
+                  {' '}
+                  <Typography sx={{ color: theme.syntax }}>
+                    The way of wind
+                  </Typography>
+                </Paper>
+                <Paper
+                  sx={{
+                    width: 400,
+                    borderRadius: 5,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    backgroundColor: theme.ui,
+                  }}
+                >
+                  {' '}
+                  <Typography sx={{ color: theme.syntax }}>
+                    Final Empire
+                  </Typography>
+                </Paper>
+              </Stack>
+            </Box>
+          );
+        }}
+      </Themecontext.Consumer>
     );
   }
 }

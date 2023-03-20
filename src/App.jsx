@@ -1,14 +1,15 @@
 import React from 'react';
 import Appbar from './Components/AppBar/Appbar';
-import Booklist from './Components/Home/Booklist/Booklist';
 import ThemeContextProvider from './Components/Context/ThemeContext';
+import AuthContextProvider from './Components/Context/AuthContext';
 
 const App = () => {
   return (
     <>
       <ThemeContextProvider>
-        <Appbar />
-        <Booklist />
+        <AuthContextProvider>
+          <Appbar />
+        </AuthContextProvider>
       </ThemeContextProvider>
     </>
   );
