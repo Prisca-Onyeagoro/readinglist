@@ -1,25 +1,19 @@
 import { Box, Button } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Themecontext } from '../../Context/ThemeContext';
 
 const Toggle = () => {
-  return (
-    <Themecontext.Consumer>
-      {(context) => {
-        const { toggleTheme } = context;
-        const toggle = toggleTheme;
+  const { toggleTheme } = useContext(Themecontext);
+  const toggle = toggleTheme;
 
-        return (
-          <>
-            <Box>
-              <Button variant="text" onClick={toggle}>
-                Toggle
-              </Button>
-            </Box>
-          </>
-        );
-      }}
-    </Themecontext.Consumer>
+  return (
+    <>
+      <Box>
+        <Button variant="text" onClick={toggle}>
+          Toggle
+        </Button>
+      </Box>
+    </>
   );
 };
 
