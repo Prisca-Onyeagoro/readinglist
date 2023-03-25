@@ -1,16 +1,19 @@
 import React from 'react';
-import Appbar from './Components/AppBar/Appbar';
-import ThemeContextProvider from './Components/Context/ThemeContext';
-import AuthContextProvider from './Components/Context/AuthContext';
+import ReadingContextProvider from './Context/ReadingContext';
+import Home from './Components/Home';
+import ReadingList from './Components/ReadingList';
+import ReadingForm from './Components/ReadingForm';
 
 const App = () => {
   return (
     <>
-      <ThemeContextProvider>
-        <AuthContextProvider>
-          <Appbar />
-        </AuthContextProvider>
-      </ThemeContextProvider>
+      <div className="App">
+        <ReadingContextProvider>
+          <Home />
+          <ReadingList />
+          <ReadingForm />
+        </ReadingContextProvider>
+      </div>
     </>
   );
 };
